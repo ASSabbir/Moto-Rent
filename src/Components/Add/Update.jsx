@@ -9,7 +9,7 @@ const Update = () => {
     const id = pathname.replace('/update/', '');
     const navigate = useNavigate();
 
-    // State for loading
+  
     const [loading, setLoading] = useState(true);
     const [formData, setFormData] = useState(null);
 
