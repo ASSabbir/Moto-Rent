@@ -7,8 +7,8 @@ const Available = () => {
     const cars = datas;
 
     const [searchQuery, setSearchQuery] = useState("");
-    const [viewMode, setViewMode] = useState("grid"); // Toggle between 'grid' and 'list'
-    const [sortOption, setSortOption] = useState("dateNewest"); // Default sorting option
+    const [viewMode, setViewMode] = useState("grid"); 
+    const [sortOption, setSortOption] = useState("dateNewest"); 
 
     if (dataloading) {
         return (
