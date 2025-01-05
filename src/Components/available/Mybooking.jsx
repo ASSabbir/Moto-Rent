@@ -16,6 +16,7 @@ const Mybooking = () => {
     const [error, setError] = useState(null);
     const { user } = useContext(AuthContext);
 
+    // this is data loading ?
     useEffect(() => {
         setLoading(true);
         fetch('http://localhost:5000/watchlist')
