@@ -18,25 +18,18 @@ const Available = () => {
         );
     }
 
-    // Handle search functionality
+    // Filter cars by searchQuery for the carModel
     const filteredCars = cars.filter((car) => {
-        const model = car.model || ""; // Default to an empty string if undefined
-        const brand = car.brand || ""; // Default to an empty string if undefined
-        const location = car.location || ""; // Default to an empty string if undefined
-
-        return (
-            model.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            location.toLowerCase().includes(searchQuery.toLowerCase())
-        );
+        const model = car.carModel || ""; // Default to an empty string if undefined
+        return model.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
-    // Handle sorting
+    // Sort the filtered cars
     const sortedCars = [...filteredCars].sort((a, b) => {
         if (sortOption === "dateNewest") return new Date(b.dateAdded) - new Date(a.dateAdded);
         if (sortOption === "dateOldest") return new Date(a.dateAdded) - new Date(b.dateAdded);
-        if (sortOption === "priceLowest") return a.dailyPrice - b.dailyPrice;
-        if (sortOption === "priceHighest") return b.dailyPrice - a.dailyPrice;
+        if (sortOption === "priceLowest") return a.dailyRentalPrice - b.dailyRentalPrice;
+        if (sortOption === "priceHighest") return b.dailyRentalPrice - a.dailyRentalPrice;
         return 0;
     });
 
@@ -46,7 +39,7 @@ const Available = () => {
             <div className="controls flex md:flex-row flex-col justify-between items-center mb-20">
                 <input
                     type="text"
-                    placeholder="Search by model, brand, or location"
+                    placeholder="Search by car model"
                     className="p-2 border rounded"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -82,12 +75,12 @@ const Available = () => {
                 {sortedCars.map((car) => (
                     <div
                         key={car._id}
-                        className="car-card border rounded p-4 shadow hover:shadow-lg transition"
+                        className={`car-card ${viewMode === "grid"? "":"max-w-screen-xl w-full mx-auto"} border rounded p-4 shadow hover:shadow-lg transition`}
                     >
                         <img
                             src={car.imageUrl}
                             alt={car.carModel}
-                            className="w-full h-48 object-cover rounded"
+                            className={`w-full ${viewMode === "grid"? "":"h-96"} h-48  object-cover rounded object-center`}
                         />
                         <h3 className="text-xl font-bold mt-2">{car.carModel}</h3>
                         <p className="text-gray-300">{car.vehicleRegistrationNumber}</p>
@@ -95,11 +88,8 @@ const Available = () => {
                         <p className="text-gray-600">Price: ${car.dailyRentalPrice}/day</p>
                         <p className="text-gray-600">Booking Count: {car.bookingCount}</p>
                         <p className="text-gray-500 text-sm">Added: {car.dateAdded}</p>
-                        <button className="mt-2 bg-primary text-white px-4 py-2 rounded ">
-                            
-                            <Link to={`/car/${car._id}`}>
-                            Book Now
-                            </Link>
+                        <button className="mt-2 bg-primary text-white px-4 py-2 rounded">
+                            <Link to={`/car/${car._id}`}>Book Now</Link>
                         </button>
                     </div>
                 ))}

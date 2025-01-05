@@ -12,12 +12,15 @@ import Mybooking from "../available/Mybooking";
 import AddCar from "../Add/AddCar";
 import MyCars from "../Add/MyCars";
 import Update from "../Add/Update";
+import Errorpage from "../Errorpage";
+import PrivateRoute from "./PrivateRoute";
 
 
 const Routes = createBrowserRouter([
     {
         path:'/',
         element:<Roots></Roots>,
+        errorElement:<Errorpage></Errorpage>,
         children:[
             {
                 path:'/',
@@ -37,23 +40,23 @@ const Routes = createBrowserRouter([
             },
             {
                 path:'/car/:id',
-                element:<Details></Details>
+                element:<PrivateRoute><Details></Details></PrivateRoute>
             },
             {
                 path:'/mybooking',
-                element:<Mybooking></Mybooking>
+                element:<PrivateRoute><Mybooking></Mybooking></PrivateRoute>
             },
             {
                 path:'/addcar',
-                element:<AddCar></AddCar>
+                element:<PrivateRoute><AddCar></AddCar></PrivateRoute>
             },
             {
                 path:'/mycars',
-                element:<MyCars></MyCars>
+                element:<PrivateRoute><MyCars></MyCars></PrivateRoute>
             },
             {
                 path:'/update/:id',
-                element:<Update></Update>
+                element:<PrivateRoute><Update></Update></PrivateRoute>
             }
         ]
     }

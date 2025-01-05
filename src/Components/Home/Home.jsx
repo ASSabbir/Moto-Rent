@@ -4,6 +4,8 @@ import Banner from './Banner';
 import WhyChoseUs from './WhyChoseUs';
 import { AuthContext } from '../AuthProvider';
 import Cars from './cars';
+import Extra from './Extra';
+import SpecialOffers from './SpecialOffers';
 
 const Home = () => {
     const {datas,dataloading}=useContext(AuthContext)
@@ -18,6 +20,8 @@ const Home = () => {
             <Banner></Banner>
             <WhyChoseUs></WhyChoseUs>
             <Cars cars={datas}></Cars>
+            <Extra></Extra>
+            <SpecialOffers></SpecialOffers>
         </div>
     );
 };

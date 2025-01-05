@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { FaTrash, FaCalendarAlt } from "react-icons/fa";
 import { AuthContext } from "../AuthProvider";
 import Swal from "sweetalert2";
+import Chat from "./Chat";
 
 const Mybooking = () => {
     const [tempbokking, setTemp] = useState([]);
@@ -79,7 +80,7 @@ const Mybooking = () => {
 
     return (
         <div className="p-6">
-            <div className="overflow-x-auto h-screen">
+            <div className="overflow-x-auto mb-40">
                 <table className="min-w-full table-auto border-collapse">
                     <thead>
                         <tr className="bg-gray-300 text-zinc-800">
@@ -200,6 +201,7 @@ const Mybooking = () => {
                     </div>
                 </div>
             )}
+            <Chat tempBooking={temp}></Chat>
         </div>
     );
 };

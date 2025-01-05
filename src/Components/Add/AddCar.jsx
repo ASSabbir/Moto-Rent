@@ -1,10 +1,22 @@
 import  { useState, useContext } from "react";
 import { AuthContext } from "../AuthProvider";
+import Swal from "sweetalert2";
 
 const AddCar = () => {
     const { user } = useContext(AuthContext);
    
-    // Default user details
+    
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
     const defaultUser = {
         userId: user?.uid || "defaultUserId",
         name: user?.displayName || "Default User",
@@ -51,7 +63,11 @@ const AddCar = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log("Car added:", data);
-                alert("Car added successfully!");
+                Toast.fire({
+                    icon: "success",
+                    title: "Car added successfully!"
+                  });
+                
                 setCar({
                     carModel: "",
                     dailyRentalPrice: "",

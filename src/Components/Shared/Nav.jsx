@@ -41,6 +41,12 @@ const Nav = () => {
         <Link to={'/mybooking'}><li className="p-2">My Bookings</li></Link>
         
     </>
+    const navlink2 = <>
+    <Link to={'/'}><li className="p-2">Home</li></Link>
+    <Link to={'/availablecars'}><li className="p-2">Available Cars</li></Link>
+    
+    
+</>
     return (
         <div className="navbar bg-zinc-900 max-w-screen-2xl mx-auto  ">
             <div className="navbar-start">
@@ -72,7 +78,7 @@ const Nav = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal text-lg px-1">
-                    {navlink}
+                    {user?navlink:navlink2}
                 </ul>
             </div>
             <div className="navbar-end">

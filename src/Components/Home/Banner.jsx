@@ -14,7 +14,7 @@ const Banner = () => {
                 <h1 className="text-4xl sm:text-5xl pb-9 lg:text-6xl font-bold mb-4">
                     Drive Your Dreams Today!
                 </h1>
-                <Link>
+                <Link to={'/availablecars'}>
                     <Button text={'View Available Cars'}></Button>
                 </Link>
             </div>
