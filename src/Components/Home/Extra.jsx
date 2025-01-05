@@ -4,10 +4,10 @@ const Extra = () => {
     return (
         <section className="bg-gray-900 text-gray-300 py-16">
             <div className="max-w-screen-2xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
-                {/* Left Images */}
+                
                 <div className="flex flex-row gap-5 w-full lg:w-1/2">
                     <motion.img
-                        src="/boris-m-_CiyeM2kvqs-unsplash.jpg" // Replace with your first image URL
+                        src="/boris-m-_CiyeM2kvqs-unsplash.jpg" 
                         alt="Businesswoman"
                         className="shadow-lg h-96 object-cover"
                         initial={{ opacity: 0, x: -50 }}
@@ -15,16 +15,16 @@ const Extra = () => {
                         transition={{ duration: 0.8 }}
                     />
                     <motion.img
-                        src="/zoe-holling-PScacPyJE5U-unsplash.jpg" // Replace with your second image URL
+                        src="/zoe-holling-PScacPyJE5U-unsplash.jpg" 
                         alt="Car Logo"
                         className="shadow-lg h-96 object-cover"
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }} // Add delay for staggered animation
+                        transition={{ duration: 0.8, delay: 0.2 }} 
                     />
                 </div>
 
-                {/* Right Content */}
+               
                 <div className="w-full lg:w-1/2 text-center lg:text-left">
                     <motion.h2
                         className="text-4xl font-bold text-white mb-4"
@@ -52,7 +52,7 @@ const Extra = () => {
                         ultrices eros in cursus turpis.
                     </motion.p>
 
-                    {/* Stats */}
+                    
                     <div className="flex justify-center lg:justify-start gap-12 mt-8">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
