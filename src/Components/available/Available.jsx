@@ -18,13 +18,13 @@ const Available = () => {
         );
     }
 
-    // Filter cars by searchQuery for the carModel
+    
     const filteredCars = cars.filter((car) => {
-        const model = car.carModel || ""; // Default to an empty string if undefined
+        const model = car.carModel || ""; 
         return model.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
-    // Sort the filtered cars
+   
     const sortedCars = [...filteredCars].sort((a, b) => {
         if (sortOption === "dateNewest") return new Date(b.dateAdded) - new Date(a.dateAdded);
         if (sortOption === "dateOldest") return new Date(a.dateAdded) - new Date(b.dateAdded);
@@ -35,7 +35,7 @@ const Available = () => {
 
     return (
         <div className="available-cars max-w-screen-2xl mx-auto mt-20">
-            {/* Search and Sorting Controls */}
+          
             <div className="controls flex md:flex-row flex-col justify-between items-center mb-20">
                 <input
                     type="text"
@@ -64,7 +64,7 @@ const Available = () => {
                 </div>
             </div>
 
-            {/* Display Cars */}
+            
             <div
                 className={
                     viewMode === "grid"
