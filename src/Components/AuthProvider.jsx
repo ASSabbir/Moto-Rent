@@ -57,8 +57,7 @@ const AuthProvider = ({children}) => {
     }
 
 
-
-    
+ 
     const data={
         datas,
         loading,
