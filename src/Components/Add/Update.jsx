@@ -48,7 +48,7 @@ const Update = () => {
             },
         };
 
-        fetch(`http://localhost:5000/update/${id}`, {
+        fetch(`https://motorent-beta.vercel.app/update/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

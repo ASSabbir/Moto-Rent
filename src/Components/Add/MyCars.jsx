@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider";
 import Button from "../Shared/Button";
+import axios from "axios";
 
 const MyCars = () => {
     const [datas, setDatas] = useState([]);
@@ -10,12 +11,24 @@ const MyCars = () => {
     const { user, loading } = useContext(AuthContext);
     const [myData, setMyData] = useState([]);
     const [fetchError, setFetchError] = useState(false);
-    const [sortOption, setSortOption] = useState(""); 
+    const [sortOption, setSortOption] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
         if (!user?.email) return;
-        fetch("http://localhost:5000/allcars")
+        // axios.get('https://motorent-beta.vercel.app/watchlist', { withCredentials: true })
+        //     .then(res => {
+        //         const data = res.data
+        //         setDatas(data);
+        //         const filteredData = data.filter((car) => car.userDetails.email === user.email);
+        //         setMyData(filteredData);
+        //         setDataloading(false);
+        //     })
+        //     .catch(() => {
+        //         setFetchError(true);
+        //         setDataloading(false);
+        //     });
+        fetch("https://motorent-beta.vercel.app/allcars")
             .then((res) => res.json())
             .then((data) => {
                 setDatas(data);
@@ -59,7 +72,7 @@ const MyCars = () => {
         );
     }
 
-    
+
     const handleSort = (option) => {
         setSortOption(option);
         let sortedData = [...myData];
@@ -85,7 +98,7 @@ const MyCars = () => {
             cancelButtonText: "No, cancel!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/car/${data._id}`, { method: "DELETE" })
+                fetch(`https://motorent-beta.vercel.app/car/${data._id}`, { method: "DELETE" })
                     .then((res) => res.json())
                     .then(() => {
                         const updatedData = myData.filter((item) => item._id !== data._id);
@@ -98,7 +111,7 @@ const MyCars = () => {
 
     return (
         <div className="min-h-screen px-[10vw] text-white p-8">
-           
+
             <div className="mb-8 flex justify-end">
                 <select
                     value={sortOption}

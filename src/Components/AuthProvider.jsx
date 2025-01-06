@@ -15,7 +15,7 @@ const AuthProvider = ({children}) => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/allcars')
+        fetch('https://motorent-beta.vercel.app/allcars')
         .then(res => res.json())
             .then(data => 
                 {setDatas(data)
@@ -55,6 +55,8 @@ const AuthProvider = ({children}) => {
     const googleSign =()=>{
         return signInWithPopup(auth,provider)
     }
+
+
 
 
     const data={

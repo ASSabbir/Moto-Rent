@@ -5,22 +5,22 @@ const WhyChoseUs = () => {
         {
             title: "Wide Variety of Cars",
             description: "Experience a vast array of cars tailored to suit every need and budget luxurious rides.",
-            icon: "/public/obi-pixel9propics-JIcR3-O8ko8-unsplash.jpg",
+            icon: "/obi-pixel9propics-JIcR3-O8ko8-unsplash.jpg",
         },
         {
             title: "Affordable Prices",
             description: "Enjoy daily rental rates that are affordable and transparent, with no hidden fees.",
-            icon: "/public/hareez-hussaini-7anmWNqGiaA-unsplash.jpg",
+            icon: "/hareez-hussaini-7anmWNqGiaA-unsplash.jpg",
         },
         {
             title: "Easy Booking Process",
             description: "Reserve your dream car in just a few clicks with our user-friendly booking platform.",
-            icon: "/public/priscilla-du-preez-BjhUu6BpUZA-unsplash.jpg",
+            icon: "/priscilla-du-preez-BjhUu6BpUZA-unsplash.jpg",
         },
         {
             title: "24/7 Customer Support",
             description: "Receive 24/7 support from our dedicated team, ready to assist with any  issues.",
-            icon: "/public/seo-galaxy-GQ6bUqDNjZY-unsplash.jpg",
+            icon: "/seo-galaxy-GQ6bUqDNjZY-unsplash.jpg",
         },
     ];
 

@@ -17,7 +17,7 @@ const Details = () => {
         const fetchCarData = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`http://localhost:5000/car/${id}`); 
+                const response = await fetch(`https://motorent-beta.vercel.app/car/${id}`); 
                 if (!response.ok) {
                     throw new Error("Car not found");
                 }
@@ -86,7 +86,7 @@ const Details = () => {
         const updatedData = { ...data, addedUser: user.email };
         delete updatedData._id;
 
-        fetch("http://localhost:5000/watchlist", {
+        fetch("https://motorent-beta.vercel.app/watchlist", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedData),

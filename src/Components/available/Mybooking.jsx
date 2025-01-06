@@ -3,6 +3,7 @@ import { FaTrash, FaCalendarAlt } from "react-icons/fa";
 import { AuthContext } from "../AuthProvider";
 import Swal from "sweetalert2";
 import Chat from "./Chat";
+import axios from "axios";
 
 
 
@@ -19,7 +20,17 @@ const Mybooking = () => {
     // this is data loading ?
     useEffect(() => {
         setLoading(true);
-        fetch('http://localhost:5000/watchlist')
+        // axios.get('https://motorent-beta.vercel.app/watchlist')
+        // .then(res=>{
+        //     setTemp(res.data);
+        //     console.log(res.data)
+        //     setLoading(false);
+        // })
+        // .catch(error => {
+        //     setError(error.message);
+        //     setLoading(false);
+        // });
+        fetch('https://motorent-beta.vercel.app/watchlist')
             .then(res => res.json())
             .then(data => {
                 setTemp(data);
@@ -43,7 +54,7 @@ const Mybooking = () => {
 
 
 
-    
+
     const temp = tempbokking.filter(data => data.addedUser === user?.email);
 
     const handleCancelClick = (booking) => {
@@ -57,7 +68,7 @@ const Mybooking = () => {
     };
 
     const handleConfirmCancel = (data) => {
-        fetch(`http://localhost:5000/deletewatch/${data._id}`, {
+        fetch(`https://motorent-beta.vercel.app/deletewatch/${data._id}`, {
             method: "DELETE",
         })
             .then((response) => response.json())

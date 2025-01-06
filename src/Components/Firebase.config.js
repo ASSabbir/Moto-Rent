@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDiIzg4J_5rHAczGy1ZQXOs3OpVWtFxJIk",
-  authDomain: "motorent-120eb.firebaseapp.com",
-  projectId: "motorent-120eb",
-  storageBucket: "motorent-120eb.firebasestorage.app",
-  messagingSenderId: "579163326835",
-  appId: "1:579163326835:web:c60512a039012b67e35d06"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

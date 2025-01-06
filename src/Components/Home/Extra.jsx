@@ -9,7 +9,7 @@ const Extra = () => {
                     <motion.img
                         src="/boris-m-_CiyeM2kvqs-unsplash.jpg" 
                         alt="Businesswoman"
-                        className="shadow-lg h-96 object-cover"
+                        className="shadow-lg h-64 md:h-96 object-cover"
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
@@ -17,7 +17,7 @@ const Extra = () => {
                     <motion.img
                         src="/zoe-holling-PScacPyJE5U-unsplash.jpg" 
                         alt="Car Logo"
-                        className="shadow-lg h-96 object-cover"
+                        className="shadow-lg h-64 md:h-96 object-cover"
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }} 

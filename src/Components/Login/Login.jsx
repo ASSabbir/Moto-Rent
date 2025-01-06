@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../AuthProvider';
+import axios from 'axios';
 
 
 const Login = () => {
@@ -30,12 +31,27 @@ const Login = () => {
       return
     }
     handelSignin(email, password)
-      .then(user => {
+      .then(user2 => {
 
         Toast.fire({
           icon: "success",
-          title: `WelCome ${user.user.displayName} `
+          title: `WelCome ${user2.user.displayName} `
         });
+        // const user = { email: email }
+        // console.log(user)
+        // axios.post('https://motorent-beta.vercel.app/jwt',user,{withCredentials:true})
+        //   .then(data => {
+        //     console.log(data.data)
+        //   })
+        // fetch('https://motorent-beta.vercel.app/jwt', {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify(user),
+        // })
+        // .then(res=>res.json())
+        // .then(data=>console.log(data))
         navg(location.state ? location.state : '/')
 
       })
@@ -50,11 +66,12 @@ const Login = () => {
   }
   const handelgoogle = () => {
     googleSign()
-      .then((user) => {
+      .then((user2) => {
         Toast.fire({
           icon: "success",
-          title: `WelCome ${user.user.displayName} `
+          title: `WelCome ${user2.user.displayName} `
         });
+        
         navg(location.state ? location.state : '/')
 
       })
@@ -74,7 +91,7 @@ const Login = () => {
     >
       <div className="w-full max-w-md bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-8 shadow-lg">
         <div className="text-center mb-6">
-          
+
           <h2 className="text-3xl font-title text-white font-semibold">
             Log In
           </h2>

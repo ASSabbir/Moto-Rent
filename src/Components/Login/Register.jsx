@@ -4,9 +4,10 @@ import Swal from 'sweetalert2'
 import { updateProfile } from 'firebase/auth';
 import { AuthContext } from '../AuthProvider';
 import { auth } from '../Firebase.config';
+import axios from 'axios';
 const Register = () => {
     const { handelSignup } = useContext(AuthContext)
-    const navg=useNavigate()
+    const navg = useNavigate()
     const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
@@ -18,14 +19,14 @@ const Register = () => {
             toast.onmouseleave = Swal.resumeTimer;
         }
     });
-    const handelRegister=e=>{
+    const handelRegister = e => {
         e.preventDefault();
         const username = e.target.username.value
         const email = e.target.email.value
         const url = e.target.url.value
         const password = e.target.password.value
-        console.log(username,email,url,password)
-        if(username==='' || email==='' || url==='' || password===''){
+        console.log(username, email, url, password)
+        if (username === '' || email === '' || url === '' || password === '') {
             Toast.fire({
                 icon: "error",
                 title: 'All fields must be filled out.'
@@ -40,16 +41,23 @@ const Register = () => {
             });
         } else {
             handelSignup(email, password)
-                .then(user => {   
+                .then(user => {
                     updateProfile(auth.currentUser, {
                         displayName: username, photoURL: url
                     })
                         .then(() => {
-                            
+
                             Toast.fire({
                                 icon: "success",
                                 title: `WelCome ${auth.currentUser.displayName} `
                             });
+                            // const user = { email: auth.currentUser.email }
+                            // console.log(user)
+                            // axios.post('https://motorent-beta.vercel.app/jwt', user, { withCredentials: true })
+                            //     .then(data => {
+                            //         console.log(data.data)
+                            //     })
+                            
                             navg('/')
                         }).catch((erro) => {
                             console.log(erro)
@@ -73,13 +81,13 @@ const Register = () => {
         >
             <div className="w-full max-w-md bg-white bg-opacity-10 backdrop-blur-md  p-8 shadow-lg">
                 <div className="text-center mb-6">
-                   
+
                     <h2 className="text-3xl font-title text-white font-semibold">
                         Register
                     </h2>
                 </div>
                 <form onSubmit={handelRegister}>
-                   
+
                     <div className="mb-4">
                         <label
                             htmlFor="username"
@@ -95,7 +103,7 @@ const Register = () => {
                         />
                     </div>
 
-                   
+
                     <div className="mb-4">
                         <label
                             htmlFor="email"
@@ -111,7 +119,7 @@ const Register = () => {
                         />
                     </div>
 
-                   
+
                     <div className="mb-4">
                         <label
                             htmlFor="photoURL"
@@ -127,7 +135,7 @@ const Register = () => {
                         />
                     </div>
 
-                    
+
                     <div className="mb-6">
                         <label
                             htmlFor="password"
@@ -143,7 +151,7 @@ const Register = () => {
                         />
                     </div>
 
-                    
+
                     <button
                         type="submit"
                         className="w-full py-2 bg-primary hover:bg-opacity-80 text-white  font-semibold transition duration-300"

@@ -53,7 +53,7 @@ const AddCar = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch("http://localhost:5000/addcars", {
+        fetch("https://motorent-beta.vercel.app/addcars", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -90,7 +90,7 @@ const AddCar = () => {
     };
 
     return (
-        <div className="md:px-28 rounded-lg shadow-md max-w-screen-2xl mx-auto">
+        <div className="md:px-28 px-4 rounded-lg shadow-md max-w-screen-2xl mx-auto">
             <h2 className="text-2xl font-bold mb-4">Add Car</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
