@@ -7,8 +7,8 @@ const Available = () => {
     const cars = datas;
 
     const [searchQuery, setSearchQuery] = useState("");
-    const [viewMode, setViewMode] = useState("grid"); 
-    const [sortOption, setSortOption] = useState("dateNewest"); 
+    const [viewMode, setViewMode] = useState("grid");
+    const [sortOption, setSortOption] = useState("dateNewest");
 
     if (dataloading) {
         return (
@@ -18,13 +18,13 @@ const Available = () => {
         );
     }
 
-    
+
     const filteredCars = cars.filter((car) => {
-        const model = car.carModel || ""; 
+        const model = car.carModel || "";
         return model.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
-   
+
     const sortedCars = [...filteredCars].sort((a, b) => {
         if (sortOption === "dateNewest") return new Date(b.dateAdded) - new Date(a.dateAdded);
         if (sortOption === "dateOldest") return new Date(a.dateAdded) - new Date(b.dateAdded);
@@ -34,53 +34,55 @@ const Available = () => {
     });
 
     return (
-        <div className="available-cars max-w-screen-2xl mx-auto mt-20">
-          
-            <div className="controls flex md:flex-row flex-col justify-between items-center mb-20">
-                <input
-                    type="text"
-                    placeholder="Search by car model"
-                    className="p-2 border rounded"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                />
-                <div className="flex items-center gap-4">
-                    <select
+        <div className="available-cars  ">
+
+            <div className="w-full bg-zinc-800 border-b-2 py-12 mb-12">
+                <div className="controls max-w-screen-2xl mx-auto flex md:flex-row flex-col justify-between items-center ">
+                    <input
+                        type="text"
+                        placeholder="Search by car model"
                         className="p-2 border rounded"
-                        value={sortOption}
-                        onChange={(e) => setSortOption(e.target.value)}
-                    >
-                        <option value="dateNewest">Date Added: Newest First</option>
-                        <option value="dateOldest">Date Added: Oldest First</option>
-                        <option value="priceLowest">Price: Lowest First</option>
-                        <option value="priceHighest">Price: Highest First</option>
-                    </select>
-                    <button
-                        onClick={() => setViewMode(viewMode === "grid" ? "list" : "grid")}
-                        className="p-2 border rounded"
-                    >
-                        Toggle View: {viewMode === "grid" ? "List" : "Grid"}
-                    </button>
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    <div className="flex items-center gap-4">
+                        <select
+                            className="p-2 border rounded"
+                            value={sortOption}
+                            onChange={(e) => setSortOption(e.target.value)}
+                        >
+                            <option value="dateNewest">Date Added: Newest First</option>
+                            <option value="dateOldest">Date Added: Oldest First</option>
+                            <option value="priceLowest">Price: Lowest First</option>
+                            <option value="priceHighest">Price: Highest First</option>
+                        </select>
+                        <button
+                            onClick={() => setViewMode(viewMode === "grid" ? "list" : "grid")}
+                            className="p-2 border rounded"
+                        >
+                            Toggle View: {viewMode === "grid" ? "List" : "Grid"}
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            
+
             <div
                 className={
                     viewMode === "grid"
-                        ? "grid md:grid-cols-3 gap-4"
-                        : "list-view flex flex-col gap-4"
+                        ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-screen-2xl mx-auto"
+                        : "list-view flex flex-col gap-4 max-w-screen-2xl mx-auto"
                 }
             >
                 {sortedCars.map((car) => (
                     <div
                         key={car._id}
-                        className={`car-card ${viewMode === "grid"? "":"max-w-screen-xl w-full mx-auto"} border rounded p-4 shadow hover:shadow-lg transition`}
+                        className={`car-card ${viewMode === "grid" ? "" : "max-w-screen-xl w-full mx-auto"} border rounded p-4 shadow hover:shadow-lg transition`}
                     >
                         <img
                             src={car.imageUrl}
                             alt={car.carModel}
-                            className={`w-full ${viewMode === "grid"? "":"h-96"} h-48  object-cover rounded object-center`}
+                            className={`w-full ${viewMode === "grid" ? "" : "h-96"} h-48  object-cover rounded object-center`}
                         />
                         <h3 className="text-xl font-bold mt-2">{car.carModel}</h3>
                         <p className="text-gray-300">{car.vehicleRegistrationNumber}</p>

@@ -15,7 +15,7 @@ const SpecialOffers = () => {
     ];
 
     return (
-        <section className=" mt-44 text-gray-300 py-16">
+        <section className="mt-12 text-gray-300 py-16">
             <div className="max-w-screen-2xl mx-auto px-4">
                 <h2 className="text-4xl font-bold text-white text-center mb-8">
                     Special Offers
@@ -24,7 +24,7 @@ const SpecialOffers = () => {
                     {offers.map((offer, index) => (
                         <motion.div
                             key={index}
-                            className="bg-gray-700 rounded-lg shadow-lg p-6 w-full md:w-96"
+                            className="bg-zinc-700 rounded-lg shadow-lg p-6 w-full md:w-96"
                             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8, delay: index * 0.2 }}

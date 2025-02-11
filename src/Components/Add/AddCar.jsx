@@ -90,8 +90,8 @@ const AddCar = () => {
     };
 
     return (
-        <div className="md:px-28 px-4 rounded-lg shadow-md max-w-screen-2xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4">Add Car</h2>
+        <div className="md:px-28 px-4 rounded-lg shadow-md bg-zinc-800 max-w-screen-2xl mx-auto">
+            <h2 className="text-4xl mt-12 py-10 text-center font-bold mb-4">-- Add Car --</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <label className="block mb-1 font-bold">Car Model</label>
@@ -180,10 +180,10 @@ const AddCar = () => {
                         required
                     />
                 </div>
-                <div className="mt-4">
+                <div className=" flex justify-end">
                     <button
                         type="submit"
-                        className="bg-primary text-white px-4 py-2 rounded "
+                        className="bg-primary mb-10 mt-20 text-white px-4 py-2 rounded "
                     >
                         Add Car
                     </button>

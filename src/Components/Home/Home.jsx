@@ -6,6 +6,8 @@ import { AuthContext } from '../AuthProvider';
 import Cars from './cars';
 import Extra from './Extra';
 import SpecialOffers from './SpecialOffers';
+import SpicialSection from './SpicialSection';
+import Section2 from './Section2';
 
 
 
@@ -25,6 +27,8 @@ const Home = () => {
             <Cars cars={datas}></Cars>
             <Extra></Extra>
             <SpecialOffers></SpecialOffers>
+            <SpicialSection></SpicialSection>
+            <Section2></Section2>
         </div>
     );
 };
