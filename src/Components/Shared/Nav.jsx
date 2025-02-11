@@ -84,7 +84,8 @@ const Nav = () => {
                             {user ? navlink : navlink2}
                         </ul>
                     </div>
-                    <div className="navbar-end">
+                    <div className="navbar-end space-x-3">
+                        
                         {
                             user ?
                                 <div className="flex items-center gap-2">

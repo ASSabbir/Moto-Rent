@@ -48,8 +48,7 @@ const Extra = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                        Praesent elementum facilisis leo vel fringilla est. Vestibulum lectus a
-                        ultrices eros in cursus turpis.
+                        Experience the ultimate driving pleasure with our Premium Car Rental service. Whether you're looking for luxury, speed, or elegance, our high-end collection includes top brands like Mercedes-Benz, BMW, Audi, and Tesla. Perfect for business trips, special occasions, or simply indulging in a superior ride.
                     </motion.p>
 
                     
@@ -60,7 +59,7 @@ const Extra = () => {
                             transition={{ duration: 0.8, delay: 0.6 }}
                         >
                             <h3 className="text-5xl font-bold text-white">
-                                21<span className="text-primary-500">+</span>
+                                12<span className="text-primary-500">+</span>
                             </h3>
                             <p className="text-gray-400 text-sm mt-2">Years of experience</p>
                         </motion.div>
