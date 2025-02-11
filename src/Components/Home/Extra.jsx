@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const Extra = () => {
     return (
-        <section className="bg-gray-900 text-gray-300 py-16">
+        <section className="bg-zinc-800 text-gray-300 py-16">
             <div className="max-w-screen-2xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
                 
                 <div className="flex flex-row gap-5 w-full lg:w-1/2">
